@@ -37,22 +37,6 @@ animations = [{
 radius = 18.6
 
 [sub_resource type="GDScript" id="GDScript_tny20"]
-script/source = "extends Area2D
-
-var is_on_slime = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if get_overlapping_areas():
-		is_on_slime = true
-	else:
-		is_on_slime = false
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rc7q"]
 size = Vector2(11, 3)
@@ -60,21 +44,21 @@ size = Vector2(11, 3)
 [node name="Snail" type="CharacterBody2D" unique_id=1990234672]
 collision_layer = 2
 script = ExtResource("1_5346s")
+normal_friction = 200.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1236954994]
-position = Vector2(0, -5)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_3rc7q")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.49799672
+offset = Vector2(2.26, -5.805)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1179400090]
-position = Vector2(-4, 12)
 shape = SubResource("CircleShape2D_3rc7q")
 
 [node name="SlimeEmiter" type="Node2D" parent="." unique_id=236674650]
-position = Vector2(-3, 30)
+position = Vector2(-3, 16)
 script = ExtResource("3_tny20")
 
 [node name="SlimeDetector" type="Area2D" parent="." unique_id=1578943729]
@@ -83,9 +67,20 @@ collision_mask = 8
 script = SubResource("GDScript_tny20")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlimeDetector" unique_id=1478788705]
-position = Vector2(-3.5, 29.5)
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_3rc7q")
+
+[node name="Down" type="RayCast2D" parent="." unique_id=30111796]
+position = Vector2(0, -9)
+target_position = Vector2(0, 35)
+
+[node name="Left" type="RayCast2D" parent="." unique_id=1398290195]
+position = Vector2(0, -9)
+target_position = Vector2(-29, 0)
+
+[node name="Right" type="RayCast2D" parent="." unique_id=1618141141]
+position = Vector2(0, -9)
+target_position = Vector2(25, 0)
 
 [connection signal="begun_laying_slime" from="SlimeEmiter" to="." method="_on_begun_laying_slime"]
 [connection signal="stopped_laying_slime" from="SlimeEmiter" to="." method="_on_stopped_laying_slime"]
-[connection signal="area_entered" from="SlimeDetector" to="SlimeDetector" method="_on_area_entered"]

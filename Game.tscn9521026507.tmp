@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b37wv2iwigq5f"]
+
+[ext_resource type="PackedScene" uid="uid://yoli4oh5xndj" path="res://Scenes/Snail.tscn" id="1_wbfu4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3rc7q"]
+distance = -9.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uuvw6"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tny20"]
+normal = Vector2(1, 0)
+
+[node name="Game" type="Node" unique_id=63407891]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=883560205]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=237338148]
+shape = SubResource("WorldBoundaryShape2D_3rc7q")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=510837384]
+offset_left = -735.0
+offset_top = 10.0
+offset_right = 737.0
+offset_bottom = 50.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1504945325]
+shape = SubResource("WorldBoundaryShape2D_uuvw6")
+
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D" unique_id=1548435877]
+offset_top = -351.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=3997813]
+position = Vector2(-566, 9)
+shape = SubResource("WorldBoundaryShape2D_tny20")
+
+[node name="Snail" parent="." unique_id=1990234672 instance=ExtResource("1_wbfu4")]
+position = Vector2(-458, -35)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=997195486]
