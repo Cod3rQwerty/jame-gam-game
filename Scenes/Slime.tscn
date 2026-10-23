@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bplkl72bw1jkv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rc7q"]
+size = Vector2(18, 4)
+
+[node name="Slime" type="Area2D" unique_id=105806553]
+collision_layer = 8
+collision_mask = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=212236606]
+offset_left = -9.0
+offset_top = -2.0
+offset_right = 9.0
+offset_bottom = 2.0
+color = Color(4.3317675e-07, 0.61208826, 0.30709115, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1784253690]
+shape = SubResource("RectangleShape2D_3rc7q")

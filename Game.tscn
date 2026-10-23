@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://b37wv2iwigq5f"]
 
+[ext_resource type="PackedScene" uid="uid://yoli4oh5xndj" path="res://Scenes/Snail.tscn" id="1_wbfu4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ubv3"]
+
 [node name="Game" type="Node" unique_id=63407891]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=883560205]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=954473405]
+shape = SubResource("WorldBoundaryShape2D_6ubv3")
+
+[node name="Snail" parent="." unique_id=1990234672 instance=ExtResource("1_wbfu4")]
+position = Vector2(-46, -10)
+normal_speed = null
+normal_acceleration = null
+normal_friction = null
+slime_speed = null
+slime_acceleration = null
+slime_friction = null
+gravity = null
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=997195486]
